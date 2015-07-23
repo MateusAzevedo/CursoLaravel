@@ -19,3 +19,14 @@ $factory->define(CursoLaravel\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(CursoLaravel\Client::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'responsible' => $faker->name,
+        'email' => $faker->email,
+        'phone' => $faker->phoneNumber,
+        'address' => $faker->address,
+        'obs' => $faker->sentence,
+    ];
+});
