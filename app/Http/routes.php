@@ -16,4 +16,9 @@ Route::get('/', function ()
     return view('welcome');
 });
 
-Route::resource('client', 'ClientController', ['except' => ['create', 'edit']]);
+//Route::resource('client', 'ClientController', ['except' => ['create', 'edit']]);
+Route::get('client', 'ClientController@index');
+Route::post('client', 'ClientController@store');
+Route::get('client/{id}', 'ClientController@show');
+Route::put('client/{id}', 'ClientController@update');
+Route::delete('client/{id}', 'ClientController@destroy');
