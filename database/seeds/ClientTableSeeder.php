@@ -1,6 +1,6 @@
 <?php
 
-use CursoLaravel\Client;
+use CursoLaravel\Entities\Client;
 use Illuminate\Database\Seeder;
 
 class ClientTableSeeder extends Seeder
@@ -13,6 +13,6 @@ class ClientTableSeeder extends Seeder
     public function run()
     {
         Client::truncate();
-        factory('CursoLaravel\Client', 10)->create();
+        factory('CursoLaravel\Entities\Client', 10)->create();
     }
 }

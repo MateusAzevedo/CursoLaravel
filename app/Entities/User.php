@@ -1,6 +1,6 @@
 <?php
 
-namespace CursoLaravel;
+namespace CursoLaravel\Entities;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;

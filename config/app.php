@@ -138,6 +138,7 @@ return [
          * Packages Service Providers...
          */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Prettus\Repository\Providers\RepositoryServiceProvider::class,
     ],
     /*
     |--------------------------------------------------------------------------

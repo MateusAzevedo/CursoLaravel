@@ -2,7 +2,7 @@
 
 namespace CursoLaravel\Http\Controllers\Auth;
 
-use CursoLaravel\User;
+use CursoLaravel\Entities\User;
 use Validator;
 use CursoLaravel\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;

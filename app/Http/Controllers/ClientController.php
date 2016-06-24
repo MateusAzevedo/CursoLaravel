@@ -5,7 +5,7 @@ namespace CursoLaravel\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use CursoLaravel\Http\Requests;
-use CursoLaravel\Client;
+use CursoLaravel\Entities\Client;
 
 class ClientController extends Controller
 {
