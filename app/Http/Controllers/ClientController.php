@@ -2,22 +2,21 @@
 
 namespace CursoLaravel\Http\Controllers;
 
-use CursoLaravel\Repositories\Client\ClientRepositoryEloquent;
+use CursoLaravel\Repositories\Client\ClientRepository;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use CursoLaravel\Http\Requests;
-use CursoLaravel\Entities\Client;
 
 class ClientController extends Controller
 {
     /**
-     * @var ClientRepositoryEloquent
+     * @var ClientRepository
      */
     private $clientRepository;
 
-    public function __construct(ClientRepositoryEloquent $clientRepositoryEloquent)
+    public function __construct(ClientRepository $clientRepository)
     {
-        $this->clientRepository = $clientRepositoryEloquent;
+        $this->clientRepository = $clientRepository;
     }
 
     /**

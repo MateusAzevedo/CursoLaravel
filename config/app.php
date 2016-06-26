@@ -134,6 +134,7 @@ return [
         CursoLaravel\Providers\AppServiceProvider::class,
         CursoLaravel\Providers\EventServiceProvider::class,
         CursoLaravel\Providers\RouteServiceProvider::class,
+        CursoLaravel\Providers\RepositoryServiceProvider::class,
         /*
          * Packages Service Providers...
          */
