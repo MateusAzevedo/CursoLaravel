@@ -3,8 +3,7 @@
 namespace CursoLaravel\Services\Client;
 
 use CursoLaravel\Repositories\Client\ClientRepository;
-use CursoLaravel\Validator\Client\ClientValidator;
-use Prettus\Validator\Exceptions\ValidatorException;
+use CursoLaravel\Validators\Client\ClientValidator;
 
 class ClientService
 {
