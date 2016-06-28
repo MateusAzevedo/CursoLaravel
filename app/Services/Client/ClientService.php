@@ -17,16 +17,6 @@ class ClientService
     }
 
     /**
-     * Retrieve all data of repository.
-     *
-     * @return mixed
-     */
-    public function listAll()
-    {
-        return $this->clientRepository->all();
-    }
-
-    /**
      * Save a new entity in repository.
      *
      * @param  array $attributes Request data
@@ -35,17 +25,6 @@ class ClientService
     public function create(array $attributes)
     {
         return $this->clientRepository->create($attributes);
-    }
-
-    /**
-     * Return the specified resource.
-     *
-     * @param  int $id
-     * @return mixed
-     */
-    public function show($id)
-    {
-        return $this->clientRepository->find($id);
     }
 
     /**
@@ -58,18 +37,5 @@ class ClientService
     public function update(array $attributes, $id)
     {
         return $this->clientRepository->update($attributes, $id);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return int
-     */
-    public function delete($id)
-    {
-        $this->clientRepository->delete($id);
-
-        return $id;
     }
 }

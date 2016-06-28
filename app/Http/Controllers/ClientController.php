@@ -2,10 +2,10 @@
 
 namespace CursoLaravel\Http\Controllers;
 
+use CursoLaravel\Repositories\Client\ClientRepository;
 use CursoLaravel\Services\Client\ClientService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use CursoLaravel\Http\Requests;
 
 class ClientController extends Controller
 {
@@ -14,9 +14,15 @@ class ClientController extends Controller
      */
     private $clientService;
 
-    public function __construct(ClientService $clientService)
+    /**
+     * @var ClientRepository
+     */
+    private $clientRepository;
+
+    public function __construct(ClientService $clientService, ClientRepository $clientRepository)
     {
         $this->clientService = $clientService;
+        $this->clientRepository = $clientRepository;
     }
 
     /**
@@ -26,7 +32,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return $this->clientService->listAll();
+        return $this->clientRepository->all();
     }
 
     /**
@@ -48,7 +54,7 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        return $this->clientService->show($id);
+        return $this->clientRepository->find($id);
     }
 
     /**
@@ -71,6 +77,10 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        return $this->clientService->delete($id);
+        $this->clientRepository->delete($id);
+
+        return response()->json([
+            'message' => 'Client deleted',
+        ]);
     }
 }
