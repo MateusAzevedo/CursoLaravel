@@ -5,6 +5,7 @@ namespace CursoLaravel\Exceptions;
 use Exception;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Prettus\Validator\Exceptions\ValidatorException;
 
 class Handler extends ExceptionHandler
 {
@@ -15,6 +16,7 @@ class Handler extends ExceptionHandler
      */
     protected $dontReport = [
         HttpException::class,
+        ValidatorException::class,
     ];
 
     /**
@@ -39,6 +41,14 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        if ($e instanceof ValidatorException)
+        {
+            return response()->json([
+                'error' => true,
+                'message' => $e->getMessageBag(),
+            ]);
+        }
+
         return parent::render($request, $e);
     }
 }

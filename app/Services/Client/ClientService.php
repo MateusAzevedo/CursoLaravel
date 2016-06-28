@@ -3,6 +3,8 @@
 namespace CursoLaravel\Services\Client;
 
 use CursoLaravel\Repositories\Client\ClientRepository;
+use CursoLaravel\Validator\Client\ClientValidator;
+use Prettus\Validator\Exceptions\ValidatorException;
 
 class ClientService
 {
@@ -11,9 +13,15 @@ class ClientService
      */
     private $clientRepository;
 
-    public function __construct(ClientRepository $clientRepository)
+    /**
+     * @var ClientValidator
+     */
+    private $validator;
+
+    public function __construct(ClientRepository $clientRepository, ClientValidator $validator)
     {
         $this->clientRepository = $clientRepository;
+        $this->validator = $validator;
     }
 
     /**
@@ -24,6 +32,8 @@ class ClientService
      */
     public function create(array $attributes)
     {
+        $this->validator->with($attributes)->passesOrFail();
+
         return $this->clientRepository->create($attributes);
     }
 
@@ -36,6 +46,8 @@ class ClientService
      */
     public function update(array $attributes, $id)
     {
+        $this->validator->with($attributes)->passesOrFail();
+
         return $this->clientRepository->update($attributes, $id);
     }
 }
