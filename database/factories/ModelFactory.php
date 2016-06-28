@@ -15,7 +15,7 @@ $factory->define(CursoLaravel\Entities\User::class, function (Faker\Generator $f
     return [
         'name' => $faker->name,
         'email' => $faker->email,
-        'password' => bcrypt(str_random(10)),
+        'password' => bcrypt('password'),
         'remember_token' => str_random(10),
     ];
 });
@@ -28,5 +28,17 @@ $factory->define(CursoLaravel\Entities\Client::class, function (Faker\Generator 
         'phone' => $faker->phoneNumber,
         'address' => $faker->address,
         'obs' => $faker->sentence,
+    ];
+});
+
+$factory->define(CursoLaravel\Entities\Project::class, function (Faker\Generator $faker) {
+    return [
+        'owner_id' => factory(\CursoLaravel\Entities\User::class)->create()->id,
+        'client_id' => factory(\CursoLaravel\Entities\Client::class)->create()->id,
+        'name' => $faker->words(2, true),
+        'description' => $faker->sentence,
+        'progress' => $faker->numberBetween(0, 100),
+        'status' => $faker->numberBetween(1, 3),
+        'due_date' => $faker->dateTimeBetween('now', '+1 year'),
     ];
 });
