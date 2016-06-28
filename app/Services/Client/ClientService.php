@@ -18,6 +18,10 @@ class ClientService
      */
     private $validator;
 
+    /**
+     * @param ClientRepository $clientRepository
+     * @param ClientValidator $validator
+     */
     public function __construct(ClientRepository $clientRepository, ClientValidator $validator)
     {
         $this->clientRepository = $clientRepository;

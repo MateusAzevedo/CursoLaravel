@@ -19,6 +19,10 @@ class ClientController extends Controller
      */
     private $clientRepository;
 
+    /**
+     * @param ClientService $clientService
+     * @param ClientRepository $clientRepository
+     */
     public function __construct(ClientService $clientService, ClientRepository $clientRepository)
     {
         $this->clientService = $clientService;
