@@ -10,7 +10,7 @@ class ClientService
     /**
      * @var ClientRepository
      */
-    private $clientRepository;
+    private $repository;
 
     /**
      * @var ClientValidator
@@ -18,12 +18,12 @@ class ClientService
     private $validator;
 
     /**
-     * @param ClientRepository $clientRepository
+     * @param ClientRepository $repository
      * @param ClientValidator $validator
      */
-    public function __construct(ClientRepository $clientRepository, ClientValidator $validator)
+    public function __construct(ClientRepository $repository, ClientValidator $validator)
     {
-        $this->clientRepository = $clientRepository;
+        $this->repository = $repository;
         $this->validator = $validator;
     }
 
@@ -37,7 +37,7 @@ class ClientService
     {
         $this->validator->with($attributes)->passesOrFail();
 
-        return $this->clientRepository->create($attributes);
+        return $this->repository->create($attributes);
     }
 
     /**
@@ -51,6 +51,6 @@ class ClientService
     {
         $this->validator->with($attributes)->passesOrFail();
 
-        return $this->clientRepository->update($attributes, $id);
+        return $this->repository->update($attributes, $id);
     }
 }
