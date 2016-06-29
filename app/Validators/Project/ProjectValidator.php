@@ -11,8 +11,8 @@ class ProjectValidator extends LaravelValidator
         'client_id' => 'required|integer|exists:clients,id',
         'name' => 'required|min:3|max:255',
         'description' => 'required',
-        'progress' => 'required|between:0,100',
-        'status' => 'required|between:1,3',
+        'progress' => 'required|integer|min:0|max:100',
+        'status' => 'required|integer|min:1|max:3',
         'due_date' => 'required|date',
     ];
 }
