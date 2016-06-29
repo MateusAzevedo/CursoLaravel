@@ -31,6 +31,13 @@ $factory->define(CursoLaravel\Entities\Client::class, function (Faker\Generator 
     ];
 });
 
+$factory->define(CursoLaravel\Entities\ProjectNote::class, function (Faker\Generator $faker) {
+    return [
+        'project_id' => \CursoLaravel\Entities\Project::all()->random()->id,
+        'note' => $faker->sentence,
+    ];
+});
+
 $factory->define(CursoLaravel\Entities\Project::class, function (Faker\Generator $faker) {
     return [
         //'owner_id' => factory(\CursoLaravel\Entities\User::class)->create()->id,

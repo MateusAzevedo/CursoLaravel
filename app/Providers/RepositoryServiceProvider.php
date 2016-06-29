@@ -32,5 +32,10 @@ class RepositoryServiceProvider extends ServiceProvider
             'CursoLaravel\Repositories\Project\ProjectRepository',
             'CursoLaravel\Repositories\Project\ProjectRepositoryEloquent'
         );
+
+        $this->app->bind(
+            'CursoLaravel\Repositories\Project\ProjectNoteRepository',
+            'CursoLaravel\Repositories\Project\ProjectNoteRepositoryEloquent'
+        );
     }
 }
