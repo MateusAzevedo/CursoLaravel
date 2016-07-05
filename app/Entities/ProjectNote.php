@@ -10,6 +10,6 @@ class ProjectNote extends Model
 
     public function project()
     {
-        return $this->belongsTo(ProjectNote::class);
+        return $this->belongsTo(Project::class);
     }
 }
