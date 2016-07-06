@@ -28,7 +28,11 @@ return [
     */
 
     'grant_types' => [
-
+        'password' => [
+            'class' => \League\OAuth2\Server\Grant\PasswordGrant::class,
+            'callback' => '\CursoLaravel\OAuth\CredentialsVerifier@verify',
+            'access_token_ttl' => 3600,
+        ],
     ],
 
     /*
