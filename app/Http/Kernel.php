@@ -3,6 +3,11 @@
 namespace CursoLaravel\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use LucaDegasperi\OAuth2Server\Middleware\OAuthExceptionHandlerMiddleware;
+use LucaDegasperi\OAuth2Server\Middleware\OAuthMiddleware;
+use LucaDegasperi\OAuth2Server\Middleware\OAuthUserOwnerMiddleware;
+use LucaDegasperi\OAuth2Server\Middleware\OAuthClientOwnerMiddleware;
+use LucaDegasperi\OAuth2Server\Middleware\CheckAuthCodeRequestMiddleware;
 
 class Kernel extends HttpKernel
 {
@@ -17,7 +22,7 @@ class Kernel extends HttpKernel
         \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-        //\CursoLaravel\Http\Middleware\VerifyCsrfToken::class,
+        OAuthExceptionHandlerMiddleware::class,
     ];
 
     /**
@@ -30,5 +35,9 @@ class Kernel extends HttpKernel
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \CursoLaravel\Http\Middleware\RedirectIfAuthenticated::class,
         'csrf' => \CursoLaravel\Http\Middleware\VerifyCsrfToken::class,
+        'oauth' => OAuthMiddleware::class,
+        'oauth-user' => OAuthUserOwnerMiddleware::class,
+        'oauth-client' => OAuthClientOwnerMiddleware::class,
+        'check-authorization-params' => CheckAuthCodeRequestMiddleware::class,
     ];
 }

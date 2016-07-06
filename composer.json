@@ -9,7 +9,8 @@
         "laravel/framework": "5.1.*",
         "barryvdh/laravel-ide-helper": "^2.0",
         "doctrine/dbal": "~2.4",
-        "prettus/l5-repository": "^2.6"
+        "prettus/l5-repository": "^2.6",
+        "lucadegasperi/oauth2-server-laravel": "5.0.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
