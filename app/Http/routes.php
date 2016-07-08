@@ -15,6 +15,8 @@ Route::post('oauth/access_token', function () {
     return response()->json(Authorizer::issueAccessToken());
 });
 
-Route::resource('client', 'ClientController', ['except' => ['create', 'edit']]);
-Route::resource('project', 'ProjectController', ['except' => ['create', 'edit']]);
-Route::resource('project.note', 'ProjectNoteController', ['except' => ['create', 'edit']]);
+Route::group(['middleware' => 'oauth'], function() {
+    Route::resource('client', 'ClientController', ['except' => ['create', 'edit']]);
+    Route::resource('project', 'ProjectController', ['except' => ['create', 'edit']]);
+    Route::resource('project.note', 'ProjectNoteController', ['except' => ['create', 'edit']]);
+});
