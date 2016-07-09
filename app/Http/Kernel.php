@@ -39,5 +39,6 @@ class Kernel extends HttpKernel
         'oauth-user' => OAuthUserOwnerMiddleware::class,
         'oauth-client' => OAuthClientOwnerMiddleware::class,
         'check-authorization-params' => CheckAuthCodeRequestMiddleware::class,
+        'check-project-owner' => \CursoLaravel\Http\Middleware\CheckProjectOwner::class,
     ];
 }

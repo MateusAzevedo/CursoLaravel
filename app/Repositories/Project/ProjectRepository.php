@@ -11,4 +11,12 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  */
 interface ProjectRepository extends RepositoryInterface
 {
+    /**
+     * Check if the user is the project owner.
+     *
+     * @param $projectId integer
+     * @param $ownerId integer
+     * @return boolean
+     */
+    public function isOwner($projectId, $ownerId);
 }

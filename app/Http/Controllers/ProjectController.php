@@ -23,6 +23,8 @@ class ProjectController extends Controller
     {
         $this->projectService = $projectService;
         $this->projectRepository = $projectRepository;
+
+        $this->middleware('check-project-owner', ['only' => ['show', 'update', 'destroy']]);
     }
 
     /**
