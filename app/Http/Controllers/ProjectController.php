@@ -2,10 +2,12 @@
 
 namespace CursoLaravel\Http\Controllers;
 
+use CursoLaravel\Criteria\Project\ProjectOwner;
 use CursoLaravel\Repositories\Project\ProjectRepository;
 use CursoLaravel\Services\Project\ProjectService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use LucaDegasperi\OAuth2Server\Authorizer;
 
 class ProjectController extends Controller
 {
@@ -30,13 +32,14 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Authorizer $authorizer
      * @return Response
      */
-    public function index()
+    public function index(Authorizer $authorizer)
     {
         return $this->projectRepository
-            ->with(['owner', 'client'])
-            ->all();
+            ->with(['client'])
+            ->getByCriteria(new ProjectOwner($authorizer));
     }
 
     /**

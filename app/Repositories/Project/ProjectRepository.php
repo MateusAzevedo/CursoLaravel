@@ -2,6 +2,7 @@
 
 namespace CursoLaravel\Repositories\Project;
 
+use Prettus\Repository\Contracts\RepositoryCriteriaInterface;
 use Prettus\Repository\Contracts\RepositoryInterface;
 
 /**
@@ -9,7 +10,7 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  *
  * @package namespace CursoLaravel\Repositories;
  */
-interface ProjectRepository extends RepositoryInterface
+interface ProjectRepository extends RepositoryInterface, RepositoryCriteriaInterface
 {
     /**
      * Check if the user is the project owner.
